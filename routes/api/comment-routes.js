@@ -3,7 +3,9 @@ const res = require("express/lib/response");
 const { Comment } = require("../../models");
 const sequelize = require('../../config/connection');
 
-router.get("/", (req, res) => {
+router.get("/", (req, res) => {})
+
+router.post("/", (req, res) => {
   Comment.create({
     comment_text: req.body.comment_text,
     user_id: req.body.user_id,
@@ -15,8 +17,6 @@ router.get("/", (req, res) => {
       res.status(400).json(err);
     });
 });
-
-router.post("/", (req, res) => {});
 
 router.delete("/:id", (req, res) => {});
 
